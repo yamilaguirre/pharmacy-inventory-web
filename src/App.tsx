@@ -3,6 +3,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
+import { ProductsPage } from './pages/ProductsPage';
 import { UnauthorizedPage } from './pages/UnauthorizedPage';
 
 function App() {
@@ -17,6 +18,15 @@ function App() {
           element={
             <ProtectedRoute>
               <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/products"
+          element={
+            <ProtectedRoute allowedRoles={['ADMIN', 'PHARMACIST']}>
+              <ProductsPage />
             </ProtectedRoute>
           }
         />

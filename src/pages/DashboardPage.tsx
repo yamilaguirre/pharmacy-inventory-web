@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import type { Role } from '../lib/api';
 
 const ROLE_LABELS: Record<string, string> = {
   ADMIN: 'Administrator',
@@ -49,7 +50,7 @@ export function DashboardPage() {
         <div className="dashboard-cards">
           {user.role === 'ADMIN' && (
             <>
-              <DashboardCard title="Products" description="Manage the product catalog" />
+              <DashboardCard title="Products" description="Manage the product catalog" to="/products" />
               <DashboardCard title="Inventory" description="View and adjust stock levels" />
               <DashboardCard title="Sales" description="Review all transactions" />
               <DashboardCard title="Reports" description="Low stock and expiry alerts" />
@@ -58,7 +59,7 @@ export function DashboardPage() {
           )}
           {user.role === 'PHARMACIST' && (
             <>
-              <DashboardCard title="Products" description="Browse and manage the catalog" />
+              <DashboardCard title="Products" description="Browse and manage the catalog" to="/products" />
               <DashboardCard title="Prescriptions" description="Review pending prescriptions" />
             </>
           )}
@@ -77,11 +78,24 @@ export function DashboardPage() {
   );
 }
 
-function DashboardCard({ title, description }: { title: string; description: string }) {
+function DashboardCard({
+  title,
+  description,
+  to,
+}: {
+  title: string;
+  description: string;
+  to?: string;
+}) {
+  const navigate = useNavigate();
   return (
-    <div className="dashboard-card">
+    <div className="dashboard-card" onClick={() => to && navigate(to)} style={{ cursor: to ? 'pointer' : 'default' }}>
       <h3>{title}</h3>
       <p>{description}</p>
+      {to && <span className="card-link">Open →</span>}
     </div>
   );
 }
+
+// Exported for tree-shaking — Role type used in page labels
+export type { Role };
