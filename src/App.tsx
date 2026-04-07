@@ -5,6 +5,7 @@ import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { ProductsPage } from './pages/ProductsPage';
 import { InventoryPage } from './pages/InventoryPage';
+import { POSPage } from './pages/POSPage';
 import { UnauthorizedPage } from './pages/UnauthorizedPage';
 
 function App() {
@@ -37,6 +38,15 @@ function App() {
           element={
             <ProtectedRoute allowedRoles={['ADMIN', 'INVENTORY_MANAGER']}>
               <InventoryPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/pos"
+          element={
+            <ProtectedRoute allowedRoles={['CASHIER', 'ADMIN']}>
+              <POSPage />
             </ProtectedRoute>
           }
         />
