@@ -13,3 +13,4 @@ export * from './api/categories.api';
 export * from './api/products.api';
 export * from './api/inventory.api';
 export * from './api/sales.api';
+export * from './api/reports.api';
