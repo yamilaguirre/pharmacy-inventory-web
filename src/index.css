@@ -414,6 +414,50 @@ body {
   border: 1px solid #fde68a;
 }
 
+.badge-danger {
+  background: #fef2f2;
+  color: var(--color-danger);
+  border: 1px solid #fecaca;
+}
+
+.badge-info {
+  background: #eff6ff;
+  color: var(--color-primary);
+  border: 1px solid #bfdbfe;
+}
+
+/* ── Tabs ───────────────────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--color-border);
+  padding: 0.25rem;
+  border-radius: var(--radius);
+}
+
+.tab-btn {
+  padding: 0.45rem 1rem;
+  border: none;
+  border-radius: calc(var(--radius) - 2px);
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tab-btn:hover {
+  background: #e2e8f0;
+  color: var(--color-text);
+}
+
+.tab-btn-active {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  box-shadow: var(--shadow);
+}
+
 /* ── Modal ──────────────────────────────────────────────────── */
 .modal-overlay {
   position: fixed;

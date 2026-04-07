@@ -51,7 +51,7 @@ export function DashboardPage() {
           {user.role === 'ADMIN' && (
             <>
               <DashboardCard title="Products" description="Manage the product catalog" to="/products" />
-              <DashboardCard title="Inventory" description="View and adjust stock levels" />
+              <DashboardCard title="Inventory" description="View and adjust stock levels" to="/inventory" />
               <DashboardCard title="Sales" description="Review all transactions" />
               <DashboardCard title="Reports" description="Low stock and expiry alerts" />
               <DashboardCard title="Users" description="Manage staff accounts and roles" />
@@ -68,7 +68,7 @@ export function DashboardPage() {
           )}
           {user.role === 'INVENTORY_MANAGER' && (
             <>
-              <DashboardCard title="Inventory" description="View and adjust stock levels" />
+              <DashboardCard title="Inventory" description="View and adjust stock levels" to="/inventory" />
               <DashboardCard title="Reports" description="Low stock and expiry alerts" />
             </>
           )}

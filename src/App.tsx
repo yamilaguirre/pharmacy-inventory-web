@@ -4,6 +4,7 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { ProductsPage } from './pages/ProductsPage';
+import { InventoryPage } from './pages/InventoryPage';
 import { UnauthorizedPage } from './pages/UnauthorizedPage';
 
 function App() {
@@ -27,6 +28,15 @@ function App() {
           element={
             <ProtectedRoute allowedRoles={['ADMIN', 'PHARMACIST']}>
               <ProductsPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/inventory"
+          element={
+            <ProtectedRoute allowedRoles={['ADMIN', 'INVENTORY_MANAGER']}>
+              <InventoryPage />
             </ProtectedRoute>
           }
         />
