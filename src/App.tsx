@@ -6,6 +6,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import { ProductsPage } from './pages/ProductsPage';
 import { InventoryPage } from './pages/InventoryPage';
 import { POSPage } from './pages/POSPage';
+import { ReportsPage } from './pages/ReportsPage';
 import { UnauthorizedPage } from './pages/UnauthorizedPage';
 
 function App() {
@@ -47,6 +48,15 @@ function App() {
           element={
             <ProtectedRoute allowedRoles={['CASHIER', 'ADMIN']}>
               <POSPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/reports"
+          element={
+            <ProtectedRoute allowedRoles={['ADMIN', 'PHARMACIST', 'INVENTORY_MANAGER']}>
+              <ReportsPage />
             </ProtectedRoute>
           }
         />
